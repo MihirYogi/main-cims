@@ -3,6 +3,6 @@
     $dbuser="root";
     $dbpass="";
     $host="localhost";
-    $db="rposystem";
+    $db="cims_db";
     $mysqli=new mysqli($host,$dbuser, $dbpass, $db);
 ?>

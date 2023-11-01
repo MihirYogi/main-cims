@@ -5,27 +5,28 @@ include('config/checklogin.php');
 include('config/code-generator.php');
 
 check_login();
-//Udpate Staff
-if (isset($_POST['UpdateStaff'])) {
+
+if (isset($_POST['UpdateCamera'])) {
   //Prevent Posting Blank Values
-  if (empty($_POST["staff_number"]) || empty($_POST["staff_name"]) || empty($_POST['staff_email']) || empty($_POST['staff_password'])) {
+  if (empty($_POST["camera_make"]) || empty($_POST["serial_number"]) || empty($_POST['ins_date']) || empty($_POST['ex_date']) || empty($_POST['location']) || empty($_POST['location_image'])) {
     $err = "Blank Values Not Accepted";
   } else {
-    $staff_number = $_POST['staff_number'];
-    $staff_name = $_POST['staff_name'];
-    $staff_email = $_POST['staff_email'];
-    $staff_password = $_POST['staff_password'];
-    $update = $_GET['update'];
+    $camera_make = $_POST['camera_make'];
+    $serial_number = $_POST['serial_number'];
+    $ins_date = $_POST['ins_date'];
+    $ex_date = $_POST['ex_date'];
+    $ex_date = $_POST['location'];
+    $ex_date = $_POST['location_image'];
 
     //Insert Captured information to a database table
-    $postQuery = "UPDATE rpos_staff SET  staff_number =?, staff_name =?, staff_email =?, staff_password =? WHERE staff_id =?";
+    $postQuery = "UPDATE rpos_staff SET  camera_make =?, serial_number =?, ins_date =?, ex_date =?, location =?, location_image =? WHERE camera_id =?";
     $postStmt = $mysqli->prepare($postQuery);
     //bind paramaters
-    $rc = $postStmt->bind_param('ssssi', $staff_number, $staff_name, $staff_email, $staff_password, $update);
+    $rc = $postStmt->bind_param('ssssssi', $camera_make, $serial_number, $ins_date, $ex_date, $location , $location_image, $update);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {
-      $success = "Staff Updated" && header("refresh:1; url=hrm.php");
+      $success = "Camera Updated" && header("refresh:1; url=camera.php");
     } else {
       $err = "Please Try Again Or Try Later";
     }
@@ -45,7 +46,7 @@ require_once('partials/_head.php');
     <?php
     require_once('partials/_topnav.php');
     $update = $_GET['update'];
-    $ret = "SELECT * FROM  rpos_staff WHERE staff_id = '$update' ";
+    $ret = "SELECT * FROM  add_camera WHERE camera_id = '$update' ";
     $stmt = $mysqli->prepare($ret);
     $stmt->execute();
     $res = $stmt->get_result();
@@ -72,29 +73,39 @@ require_once('partials/_head.php');
                 <form method="POST">
                   <div class="form-row">
                     <div class="col-md-6">
-                      <label>Staff Number</label>
-                      <input type="text" name="staff_number" class="form-control" value="<?php echo $staff->staff_number; ?>">
+                      <label>camera_make</label>
+                      <input type="text" name="camera_make" class="form-control" value="<?php echo $staff->camera_make; ?>">
                     </div>
                     <div class="col-md-6">
-                      <label>Staff Name</label>
-                      <input type="text" name="staff_name" class="form-control" value="<?php echo $staff->staff_name; ?>">
+                      <label>serial_number</label>
+                      <input type="text" name="serial_numebr" class="form-control" value="<?php echo $staff->serial_number; ?>">
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="col-md-6">
-                      <label>Staff Email</label>
-                      <input type="email" name="staff_email" class="form-control" value="<?php echo $staff->staff_email; ?>">
+                      <label>ins_date</label>
+                      <input type="date" name="ins_date" class="form-control" value="<?php echo $staff->ins_date; ?>">
                     </div>
                     <div class="col-md-6">
-                      <label>Staff Password</label>
-                      <input type="password" name="staff_password" class="form-control" value="">
+                      <label>ex_date</label>
+                      <input type="date" name="ex_date" class="form-control" value="">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label>location</label>
+                      <input type="text" name="location" class="form-control" value="">
+                    </div>
+
+                    <div class="col-md-6">
+                      <label>location_image</label>
+                      <input type="file" name="location_image" class="form-control" value="">
                     </div>
                   </div>
                   <br>
                   <div class="form-row">
                     <div class="col-md-6">
-                      <input type="submit" name="UpdateStaff" value="Update Staff" class="btn btn-success" value="">
+                      <input type="submit" name="UpdateCamera" value="Update Camera" class="btn btn-success" value="">
                     </div>
                   </div>
                 </form>

@@ -34,7 +34,7 @@ require_once('partials/_analytics.php');
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Customers</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">CAMERA</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $customers; ?></span>
                     </div>
                     <div class="col-auto">
@@ -52,7 +52,7 @@ require_once('partials/_analytics.php');
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Products</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">DVR</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $products; ?></span>
                     </div>
                     <div class="col-auto">
@@ -68,9 +68,10 @@ require_once('partials/_analytics.php');
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
+                  <a href="">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Orders</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">NVR</h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $orders; ?></span>
                     </div>
                     <div class="col-auto">
@@ -79,6 +80,7 @@ require_once('partials/_analytics.php');
                       </div>
                     </div>
                   </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -88,7 +90,7 @@ require_once('partials/_analytics.php');
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">DEPOT</h5>
                       <span class="h2 font-weight-bold mb-0">$<?php echo $sales; ?></span>
                     </div>
                     <div class="col-auto">
@@ -113,10 +115,10 @@ require_once('partials/_analytics.php');
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Recent Orders</h3>
+                  <h3 class="mb-0">active camera</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="orders_reports.php" class="btn btn-sm btn-primary">See all</a>
+                  <a href="orders_reports.php" class="btn btn-sm btn-primary">see all</a>
                 </div>
               </div>
             </div>
@@ -125,14 +127,14 @@ require_once('partials/_analytics.php');
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th class="text-success" scope="col"><b>Code</b></th>
-                    <th scope="col"><b>Customer</b></th>
-                    <th class="text-success" scope="col"><b>Product</b></th>
-                    <th scope="col"><b>Unit Price</b></th>
-                    <th class="text-success" scope="col"><b>Qty</b></th>
-                    <th scope="col"><b>Total</b></th>
-                    <th scop="col"><b>Status</b></th>
-                    <th class="text-success" scope="col"><b>Date</b></th>
+                    <th scope="col"><b>camera make</b></th>
+                    <th scope="col"><b>serial no</b></th>
+                    <th scope="col"><b>megapixel</b></th>
+                    <th scope="col"><b>purchese data</b></th>
+                    <th scope="col"><b>exp date</b></th>
+                    <th scope="col"><b>location</b></th>
+                    <th scope="col"><b>depot</b></th>
+                    <th scope="col"><b>status</b></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -172,7 +174,7 @@ require_once('partials/_analytics.php');
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Recent Payments</h3>
+                  <h3 class="mb-0">deactive Camera's</h3>
                 </div>
                 <div class="col text-right">
                   <a href="payments_reports.php" class="btn btn-sm btn-primary">See all</a>

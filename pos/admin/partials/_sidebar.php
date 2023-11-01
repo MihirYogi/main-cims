@@ -14,10 +14,7 @@ while ($admin = $res->fetch_object()) {
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- Brand -->
-      <a class="navbar-brand pt-0" href="dashboard.php">
-        <img src="assets/img/brand/repos.png" class="navbar-brand-img" alt="...">
-      </a>
+      
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
         <li class="nav-item dropdown">
@@ -88,23 +85,23 @@ while ($admin = $res->fetch_object()) {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="hrm.php">
-              <i class="fas fa-user-tie text-primary"></i> HRM
+            <a class="nav-link" href="camera.php">
+              <i class="fas fa-user-tie text-primary"></i> CAMERA
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="customes.php">
-              <i class="fas fa-users text-primary"></i> Customers
+              <i class="fas fa-users text-primary"></i> NVR
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="products.php">
-              <i class="ni ni-bullet-list-67 text-primary"></i>Products
+              <i class="ni ni-bullet-list-67 text-primary"></i>DVR
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="orders.php">
-              <i class="ni ni-cart text-primary"></i> Orders
+              <i class="ni ni-cart text-primary"></i>CAMERA ACTIVATION
             </a>
           </li>
           <li class="nav-item">

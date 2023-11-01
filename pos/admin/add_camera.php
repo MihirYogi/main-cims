@@ -6,25 +6,26 @@ include('config/code-generator.php');
 
 check_login();
 //Add Staff
-if (isset($_POST['addStaff'])) {
-  //Prevent Posting Blank Values
-  if (empty($_POST["staff_number"]) || empty($_POST["staff_name"]) || empty($_POST['staff_email']) || empty($_POST['staff_password'])) {
+if (isset($_POST['addcamera'])) {
+
+  if (empty($_POST["camera_make"]) || empty($_POST["serial_number"]) || empty($_POST['ins_date']) || empty($_POST['ex_date']) || empty($_POST['location']) || empty($_POST['location_image'])) {
     $err = "Blank Values Not Accepted";
   } else {
-    $staff_number = $_POST['staff_number'];
-    $staff_name = $_POST['staff_name'];
-    $staff_email = $_POST['staff_email'];
-    $staff_password = sha1(md5($_POST['staff_password']));
+    $camera_make = $_POST['camera_make'];
+    $serial_number = $_POST['serial_number'];
+    $ins_date = $_POST['ins_date'];
+    $ex_date = $_POST['ex_date'];
+    $ex_date = $_POST['location'];
+    $ex_date = $_POST['location_image'];
 
-    //Insert Captured information to a database table
-    $postQuery = "INSERT INTO rpos_staff (staff_number, staff_name, staff_email, staff_password) VALUES(?,?,?,?)";
+    $postQuery = "INSERT INTO main_cims (camera_make, serial_number, ins_date, ex_date, location, location_image) VALUES(?,?,?,?,?,?)";
     $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('ssss', $staff_number, $staff_name, $staff_email, $staff_password);
+
+    $rc = $postStmt->bind_param('ssssss', $camera_make, $serial_number, $ins_date, $ex_date, $location, $location_image);
     $postStmt->execute();
-    //declare a varible which will be passed to alert function
+
     if ($postStmt) {
-      $success = "Staff Added" && header("refresh:1; url=hrm.php");
+      $success = "Camera Added" && header("refresh:1; url=camera.php");
     } else {
       $err = "Please Try Again Or Try Later";
     }
@@ -65,22 +66,30 @@ require_once('partials/_head.php');
               <form method="POST">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <label>Staff Number</label>
+                    <label>camera make</label>
                     <input type="text" name="staff_number" class="form-control" value="<?php echo $alpha; ?>-<?php echo $beta; ?>">
                   </div>
                   <div class="col-md-6">
-                    <label>Staff Name</label>
+                    <label>serial_number</label>
                     <input type="text" name="staff_name" class="form-control" value="">
                   </div>
                 </div>
                 <hr>
                 <div class="form-row">
                   <div class="col-md-6">
-                    <label>Staff Email</label>
+                    <label>ins date</label>
                     <input type="email" name="staff_email" class="form-control" value="">
                   </div>
                   <div class="col-md-6">
-                    <label>Staff Password</label>
+                    <label>ex_date</label>
+                    <input type="password" name="staff_password" class="form-control" value="">
+                  </div>
+                  <div class="col-md-6">
+                    <label>location</label>
+                    <input type="password" name="staff_password" class="form-control" value="">
+                  </div>
+                  <div class="col-md-6">
+                    <label>location_image</label>
                     <input type="password" name="staff_password" class="form-control" value="">
                   </div>
                 </div>

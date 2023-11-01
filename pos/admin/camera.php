@@ -6,13 +6,13 @@ check_login();
 //Delete Staff
 if (isset($_GET['delete'])) {
   $id = intval($_GET['delete']);
-  $adn = "DELETE FROM  rpos_staff  WHERE  staff_id = ?";
+  $adn = "DELETE FROM  add_camera  WHERE  camera_id = ?";
   $stmt = $mysqli->prepare($adn);
   $stmt->bind_param('i', $id);
   $stmt->execute();
   $stmt->close();
   if ($stmt) {
-    $success = "Deleted" && header("refresh:1; url=hrm.php");
+    $success = "Deleted" && header("refresh:1; url=camera.php");
   } else {
     $err = "Try Again Later";
   }
@@ -46,44 +46,51 @@ require_once('partials/_head.php');
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <a href="add_staff.php" class="btn btn-outline-success"><i class="fas fa-user-plus"></i>Add New Staff</a>
+              <a href="add_camera.php" class="btn btn-outline-success"><i class="fas fa-user-plus"></i>Add New camera</a>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Staff Number</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">camera_make</th>
+                    <th scope="col">serial_number</th>
+                    <th scope="col">ins_date</th>
+                    <th scope="col">ex_date</th>
+                    <th scope="col">location</th>
+                    <th scope="col">location_image</th>
+                    <th scope="col">update/delete</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $ret = "SELECT * FROM  rpos_staff ";
+                  $ret = "SELECT * FROM  add_camera ";
                   $stmt = $mysqli->prepare($ret);
                   $stmt->execute();
                   $res = $stmt->get_result();
                   while ($staff = $res->fetch_object()) {
                   ?>
                     <tr>
-                      <td><?php echo $staff->staff_number; ?></td>
-                      <td><?php echo $staff->staff_name; ?></td>
-                      <td><?php echo $staff->staff_email; ?></td>
+                      <td><?php echo $staff->camera_make; ?></td>
+                      <td><?php echo $staff->serial_number; ?></td>
+                      <td><?php echo $staff->ins_date; ?></td>
+                      <td><?php echo $staff->ex_date; ?></td>
+                      <td><?php echo $staff->location; ?></td>
+                      <td><?php echo $staff->location_image; ?></td>
                       <td>
-                        <a href="hrm.php?delete=<?php echo $staff->staff_id; ?>">
+                      <a href="update_camera.php?update=<?php echo $staff->camera_id; ?>">
+                          <button class="btn btn-sm btn-primary">
+                            <i class="fas fa-user-edit"></i>
+                            Update
+                          </button>
+                        </a>
+
+                        <a href="camera.php?delete=<?php echo $staff->camera_id; ?>">
                           <button class="btn btn-sm btn-danger">
                             <i class="fas fa-trash"></i>
                             Delete
                           </button>
                         </a>
 
-                        <a href="update_staff.php?update=<?php echo $staff->staff_id; ?>">
-                          <button class="btn btn-sm btn-primary">
-                            <i class="fas fa-user-edit"></i>
-                            Update
-                          </button>
-                        </a>
                       </td>
                     </tr>
                   <?php } ?>
