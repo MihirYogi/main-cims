@@ -17,6 +17,7 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Icons -->
     <link href="assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
     <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">

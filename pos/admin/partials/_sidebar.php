@@ -73,7 +73,7 @@ while ($admin = $res->fetch_object()) {
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <span class="fa fa-search"></span>
-              </div>
+              </div>  
             </div>
           </div>
         </form>
@@ -86,17 +86,17 @@ while ($admin = $res->fetch_object()) {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="camera.php">
-              <i class="fas fa-user-tie text-primary"></i> CAMERA
+            <i class="fa-solid fa-camera"></i> CAMERA
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="customes.php">
-              <i class="fas fa-users text-primary"></i> NVR
+            <i class="fa-solid fa-hard-drive" style="color:purple;" ></i> NVR
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="products.php">
-              <i class="ni ni-bullet-list-67 text-primary"></i>DVR
+            <i class="fa-solid fa-compact-disc"></i>DVR
             </a>
           </li>
           <li class="nav-item">
